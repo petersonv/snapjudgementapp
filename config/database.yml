@@ -29,10 +29,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: project495
+  username: postgres
 
   # The password associated with the postgres role (username).
-  #password:
+  password: vero8630
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -82,5 +82,7 @@ test:
 production:
   <<: *default
   database: project495_production
-  username: project495
-  password: <%= ENV['PROJECT495_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: vero8630
+  
+  #<%= ENV['PROJECT495_DATABASE_PASSWORD'] %>
