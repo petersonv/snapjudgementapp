@@ -1,24 +1,38 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :set_question, only: %i[ show  ]
 
   # GET /questions or /questions.json
   def index
     @questions = Question.all
+
+    render json: @questions, only [:content]
   end
 
   # GET /questions/1 or /questions/1.json
   def show
+    render json: @question
   end
 
+
+
+
+
+
+=begin
   # GET /questions/new
   def new
     @question = Question.new
   end
+=end
 
+=begin
   # GET /questions/1/edit
+  dont need this action for the user...need this for admin
   def edit
   end
+=end
 
+=begin
   # POST /questions or /questions.json
   def create
     @question = Question.new(question_params)
@@ -33,8 +47,9 @@ class QuestionsController < ApplicationController
       end
     end
   end
-
+=end
   # PATCH/PUT /questions/1 or /questions/1.json
+=begin
   def update
     respond_to do |format|
       if @question.update(question_params)
@@ -46,7 +61,9 @@ class QuestionsController < ApplicationController
       end
     end
   end
+=end
 
+=begin
   # DELETE /questions/1 or /questions/1.json
   def destroy
     @question.destroy
@@ -55,6 +72,8 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
